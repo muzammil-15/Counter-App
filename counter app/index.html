@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter app</title>
+    <style>
+        .main{
+            background: linear-gradient(rgba(199, 199, 6, 0.911),rgba(139, 93, 7, 0.952) 50%);
+            border: none;
+            border-radius: 20px;
+            width: 60%;
+            max-width: 500px;
+            height: 70vh;
+            margin: 15vh auto;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+        }
+        .zero{
+            color: rgb(80, 53, 4);
+            text-shadow: 2px 2px 1px rgba(194, 184, 167, 0.74);
+            font-size: 3rem;
+            margin: 0;
+            padding: 0;
+        }
+        .pre{
+            font-size: 1.6rem;
+            color: white;
+        }
+        #data{
+            color: darkred;
+            font-weight: bolder;
+            letter-spacing: 3px;
+        }
+        button{
+            font-size: 1.2rem;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            letter-spacing: 2px;
+        }
+        .bg-darkred{
+            background-color: darkred;
+        }
+        .bg-green{
+            background-color: green;
+        }
+        button:active{
+            box-shadow: 2px 2px 3px rgba(199, 199, 6, 0.911);
+            transform: scale(95%);
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1 class="zero color">People enterd</h1>
+        <h2 class="zero" id="count">0</h2>
+        <button class="bg-darkred" onclick="increment()">COUNT</button>
+        <button class="bg-green" onclick="save()">SAVE</button>
+        <div class="pre">Previous entries: <div id="data"></div></div>
+        <button class="bg-darkred" onclick="reset()">RESET</button>
+    </div>
+    
+
+    <script>
+        let count = document.getElementById('count')
+        let data = document.getElementById('data')
+        let newCount = 0
+        function increment() {
+            newCount=newCount+1
+            count.innerText=newCount
+        }
+
+        function save(){
+            newCount = newCount + ", "
+            count.innerText = 0
+            data.innerText += newCount
+            newCount = 0
+            console.log(newCount)
+        }
+        function reset(){
+            count.innerText = 0
+            data.innerText = ""
+        }
+    
+    </script>
+</body>
+</html>
